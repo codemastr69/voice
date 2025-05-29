@@ -2,7 +2,7 @@ button {
       width:80px;
       height:;80px;
       border-radius:50%;
-      margin:20px auto;
+      align:center;
       all: unset;
       appearance: none;
       -webkit-appearance: none;
