@@ -31,7 +31,7 @@ if (!('webkitSpeechRecognition' in window)) {
 }
 
 // 🧠 Ask ChatGPT using OpenAI API
-async function askChatGPT(prompt) {
+async function askChatGPT(transcript) {
   const response = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
