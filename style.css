@@ -1,19 +1,24 @@
- button {
-            all: unset;
-            cursor: pointer;
-            display: inline-block;
-        }
+button {
+    all: unset;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.1s ease;
+}
 
-        button:focus {
-            outline: none;
-        }
+button:focus {
+    outline: none;
+}
 
-        #mic-icon {
-            width: 100px;
-            height: auto;
-            display: block;
-        }
+button:active img {
+    transform: scale(0.95); /* Slightly shrink image to simulate press */
+}
 
-        #speechtxt {
-            font-size: 23px;
-        }
+#mic-icon {
+    width: 100px;
+    height: auto;
+    display: block;
+}
+
+#speechtxt {
+    font-size: 23px;
+}
