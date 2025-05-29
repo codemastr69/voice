@@ -6,21 +6,15 @@ button {
       display: inline-block;
       transition: transform 0.1s ease;
     }
-
-    button:focus {
-      outline: none;
-    }
-
     button:active img {
       transform: scale(0.95);
     }
-
     #mic-icon {
       width: 100px;
       height: auto;
       display: block;
     }
-
     #speechtxt {
       font-size: 23px;
+      white-space: pre-line;
     }
