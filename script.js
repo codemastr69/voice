@@ -1,44 +1,24 @@
-const button = document.getElementById("record");
-    const speechText = document.getElementById("speechtxt");
+const btn = document.getElementById("record");
+const output = document.getElementById("result");
 
-    const recognition = new webkitSpeechRecognition();
-    recognition.continuous = false;
-    recognition.interimResults = false;
-    recognition.lang = "en-US";
+if (!('webkitSpeechRecognition' in window)) {
+  output.textContent = "SpeechRecognition not supported in this browser.";
+} else {
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-US";
+  recognition.continuous = false;
+  recognition.interimResults = false;
 
-    recognition.onresult = async (event) => {
-      const transcript = event.results[0][0].transcript;
-      speechText.innerText = `You: ${transcript}`;
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript;
+    output.textContent = "You said: " + transcript;
+  };
 
-      const aiReply = await askChatGPT(transcript);
-      speechText.innerText += `\nAI: ${aiReply}`;
+  recognition.onerror = (e) => {
+    output.textContent = "Error: " + e.error;
+  };
 
-      // Speak the AI's reply
-      const utterance = new SpeechSynthesisUtterance(aiReply);
-      speechSynthesis.speak(utterance);
-    };
-
-    recognition.onerror = (event) => {
-      console.error("Speech recognition error:", event.error);
-    };
-
-    button.onclick = () => {
-      recognition.start();
-    };
-
-    async function askChatGPT(userText) {
-      const response = await fetch("https://api.openai.com/v1/chat/completions", {
-        method: "POST",
-        headers: {
-          "Authorization": "Bearer YOUR_OPENAI_API_KEY",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: userText }]
-        })
-      });
-
-      const data = await response.json();
-      return data.choices[0].message.content.trim();
-    }
+  btn.onclick = () => {
+    recognition.start();
+  };
+}
