@@ -1,0 +1,19 @@
+ button {
+            all: unset; /* Remove default styles */
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        #mic-icon {
+            width: 100px;
+            height: auto;
+            display: block;
+        }
+
+        #speechtxt {
+            font-size: 23px;
+        }
