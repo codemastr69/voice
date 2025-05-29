@@ -1,24 +1,26 @@
 button {
-    all: unset;
-    cursor: pointer;
-    display: inline-block;
-    transition: transform 0.1s ease;
-}
+      all: unset;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      display: inline-block;
+      transition: transform 0.1s ease;
+    }
 
-button:focus {
-    outline: none;
-}
+    button:focus {
+      outline: none;
+    }
 
-button:active img {
-    transform: scale(0.95); /* Slightly shrink image to simulate press */
-}
+    button:active img {
+      transform: scale(0.95);
+    }
 
-#mic-icon {
-    width: 100px;
-    height: auto;
-    display: block;
-}
+    #mic-icon {
+      width: 100px;
+      height: auto;
+      display: block;
+    }
 
-#speechtxt {
-    font-size: 23px;
-}
+    #speechtxt {
+      font-size: 23px;
+    }
