@@ -1,5 +1,5 @@
  button {
-            all: unset; /* Remove default styles */
+            all: unset;
             cursor: pointer;
             display: inline-block;
         }
