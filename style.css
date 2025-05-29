@@ -1,11 +1,12 @@
 button {
+      display: circle;
+      margin:20px auto;
       all: unset;
       appearance: none;
       -webkit-appearance: none;
       cursor: pointer;
       display: inline-block;
       transition: transform 0.1s ease;
-    }
     button:active img {
       transform: scale(0.95);
     }
